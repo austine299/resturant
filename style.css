@@ -168,45 +168,7 @@ hr {
     margin-top: 5rem;
 }
 
-.delete{
-    width: 100%;
-    margin: 0;
-    margin-top: 1.5rem;
-    border-radius: 0.5rem;
-    border: hsl(20, 50%, 98%);
-    background-color:hsl(20, 50%, 98%) ;
-    color: black;
-}
 
-.delete:hover{
-    width: 100%;
-    margin: 0;
-    margin-top: 1.5rem;
-    border-radius: 0.5rem;
-    border: hsl(20, 50%, 98%);
-    background-color:hsl(20, 50%, 98%) ;
-    color: black;
-}
-
-.buy-btn {
-    width: 100%;
-    margin: 0;
-    margin-top: 1.5rem;
-    border-radius: 1rem;
-    border: hsl(14, 86%, 42%);
-    background-color:hsl(14, 86%, 42%) ;
-    color: #fff;
-}
-
-.buy-btn:hover{
-    width: 100%;
-    margin: 0;
-    margin-top: 1.5rem;
-        border-radius: 1rem;
-        border: hsl(14, 86%, 42%);
-    background-color:hsl(14, 86%, 42%);
-    color: #fff;
-}
 
 .footer{
     text-align: center;
@@ -223,7 +185,45 @@ hr {
 }
 
 @media screen and (max-width: 2000px) {
+    .delete{
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+        border-radius: 0.5rem;
+        border: hsl(20, 50%, 98%);
+        background-color:hsl(20, 50%, 98%) ;
+        color: black;
+    }
     
+    .delete:hover{
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+        border-radius: 0.5rem;
+        border: hsl(20, 50%, 98%);
+        background-color:hsl(20, 50%, 98%) ;
+        color: black;
+    }
+    
+    .buy-btn {
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+        border-radius: 1rem;
+        border: hsl(14, 86%, 42%);
+        background-color:hsl(14, 86%, 42%) ;
+        color: #fff;
+    }
+    
+    .buy-btn:hover{
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+            border-radius: 1rem;
+            border: hsl(14, 86%, 42%);
+        background-color:hsl(14, 86%, 42%);
+        color: #fff;
+    }
 
     .product-card {
         width: 30%; 
@@ -249,7 +249,45 @@ hr {
 }
 
 @media screen and (max-width: 1150px) {
+    .delete{
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+        border-radius: 0.5rem;
+        border: hsl(20, 50%, 98%);
+        background-color:hsl(20, 50%, 98%) ;
+        color: black;
+    }
     
+    .delete:hover{
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+        border-radius: 0.5rem;
+        border: hsl(20, 50%, 98%);
+        background-color:hsl(20, 50%, 98%) ;
+        color: black;
+    }
+    
+    .buy-btn {
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+        border-radius: 1rem;
+        border: hsl(14, 86%, 42%);
+        background-color:hsl(14, 86%, 42%) ;
+        color: #fff;
+    }
+    
+    .buy-btn:hover{
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+            border-radius: 1rem;
+            border: hsl(14, 86%, 42%);
+        background-color:hsl(14, 86%, 42%);
+        color: #fff;
+    }
 
     .product-card {
         width: 100%; 
@@ -275,6 +313,46 @@ hr {
 }
 
 @media screen and (max-width: 850px) {
+    .delete{
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+        border-radius: 0.5rem;
+        border: hsl(20, 50%, 98%);
+        background-color:hsl(20, 50%, 98%) ;
+        color: black;
+    }
+    
+    .delete:hover{
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+        border-radius: 0.5rem;
+        border: hsl(20, 50%, 98%);
+        background-color:hsl(20, 50%, 98%) ;
+        color: black;
+    }
+    
+    .buy-btn {
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+        border-radius: 1rem;
+        border: hsl(14, 86%, 42%);
+        background-color:hsl(14, 86%, 42%) ;
+        color: #fff;
+    }
+    
+    .buy-btn:hover{
+        width: 100%;
+        margin: 0;
+        margin-top: 1.5rem;
+            border-radius: 1rem;
+            border: hsl(14, 86%, 42%);
+        background-color:hsl(14, 86%, 42%);
+        color: #fff;
+    }
+    
     .body {
         display: flex;
         flex-direction: column;
