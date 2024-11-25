@@ -11,6 +11,10 @@ h1 {
     margin: 1rem 0;
 }
 
+body{
+    background-color: hsl(20, 50%, 98%);
+}
+
 .body {
     width: 100%;
     display: flex;
@@ -165,15 +169,43 @@ hr {
 }
 
 .delete{
+    width: 100%;
+    margin: 0;
     margin-top: 1.5rem;
-    margin-right: 2rem;
+    border-radius: 0.5rem;
+    border: hsl(20, 50%, 98%);
+    background-color:hsl(20, 50%, 98%) ;
+    color: black;
+}
+
+.delete:hover{
+    width: 100%;
+    margin: 0;
+    margin-top: 1.5rem;
+    border-radius: 0.5rem;
+    border: hsl(20, 50%, 98%);
+    background-color:hsl(20, 50%, 98%) ;
+    color: black;
 }
 
 .buy-btn {
-    width: auto;
+    width: 100%;
     margin: 0;
     margin-top: 1.5rem;
-    border-radius: 0.2rem;
+    border-radius: 1rem;
+    border: hsl(14, 86%, 42%);
+    background-color:hsl(14, 86%, 42%) ;
+    color: #fff;
+}
+
+.buy-btn:hover{
+    width: 100%;
+    margin: 0;
+    margin-top: 1.5rem;
+        border-radius: 1rem;
+        border: hsl(14, 86%, 42%);
+    background-color:hsl(14, 86%, 42%);
+    color: #fff;
 }
 
 .footer{
