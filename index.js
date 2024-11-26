@@ -5,10 +5,10 @@ console.log(products);
 
 let listCartHTML = document.querySelector(".cart");
 let spanTotalquantity = document.querySelector(".spanQuantity");
-const totalAmountHTML = document.querySelector(".total-price");
+const totalAmountHTML = document.querySelector(".total-container");
+const totalAmountpaid = document.querySelector(".checkoutAmount");
 let carts = []
 
-console.log(carts);
 
 
 const productsHTML = products.map(
@@ -31,7 +31,7 @@ const productsHTML = products.map(
 		  <span class="product-name" style = "font-weight: bold; font-size:1.2rem;">${productShow.name}</span>
 		  <strong style= "color:hsl(14, 86%, 42%);">$${productShow.price}</strong>
 	  </div>`
-	  
+
 );
   
 const content = document.querySelector(".product-body");
@@ -42,6 +42,10 @@ content.addEventListener("click", (event)=>{
 	if(positionClick.classList.contains("product-btn")){
 		let product_id = positionClick.parentElement.id;
 		
+		$(".btn-container").css("display", "block");
+		$(".empty-cart").css("display", "none");
+		$(".total-container").css("display", "block");
+
 		addToCart(product_id);
 	}
 	
@@ -74,7 +78,12 @@ content.addEventListener("click", (event)=>{
 $(".delete").click(function(){
 	if(carts.length > 0){
 		carts =[];
-	}
+		
+		$(".btn-container").css("display", "none");
+		$(".empty-cart").css("display", "flex");
+		$(".total-container").css("display", "none");
+	}	
+	
 	addCartToHTML();
 })
 
@@ -116,6 +125,8 @@ const addToCart =(product_id)=>{
 	else{
 		carts[productPositionInCart].quantity = carts[productPositionInCart].quantity + 1;
 	}
+	
+	console.log(carts);
 	addCartToHTML();
 
 }
@@ -139,9 +150,10 @@ const addCartToHTML =() =>{
 					<div>
 						<h5>${info.name}</h5>
 						<div style="display:flex; gap:15px;">
-						<span>${cart.quantity}x</span>
+						<span style = "color:red;">${cart.quantity}x</span>
 						<span> @$${info.price} </span>
 						<span> $${info.price * cart.quantity}</span>
+						<button class="remove">X</button>
 					</div>
 					<hr noshade="true" size="1px" />
 					<div class="cart-footer cart-header">
@@ -149,81 +161,87 @@ const addCartToHTML =() =>{
 				</div>
 			`;
 			listCartHTML.appendChild(newCart);
-			
 			totalAmount = totalAmount + info.price * cart.quantity;
 		});
 	}
 	spanTotalquantity.innerText = totalQuantity;
-	totalAmountHTML.innerText = `Total: $${totalAmount}`;
+	totalAmountHTML.innerHTML = `
+        <div class="" style ="display: flex; justify-content: space-between;">
+			<span>Order Total</span> 
+			<span class ="total-price">$${totalAmount}</span>
+        </div>`;
+
 };
 
 
 
-  /*
-function updateCart(){
-	const cartHTML = cart.map(
-		(Item) => `
-			<div class="container">
+const checkoutCart =() =>{
+	
+	const checkout = document.querySelector(".checkout-container");
+	checkout.innerHTML = '';
+	let totalQuantity = 0;
+	let totalAmount = 0;
+	if(carts.length > 0){
+		carts.forEach(cart =>{
+			totalQuantity = totalQuantity + cart.quantity;
+			let newCart = document.createElement("div");
+			newCart.classList.add("checkout");
+			let positionProduct = products.findIndex((value) => value.id == cart.product_id);
+			let info =products[positionProduct];
+			newCart.innerHTML = `
+
 				<div class="cart-items">
-					<strong>${Item.name}</strong>
-					<span>${Item.quantity}</span>
-					<span>@${Item.price}</span>
-					<span></span>
+					<div class = "row">
+						<img src= ${info.image.thumbnail} class ="col-sm-2 col-lg-2" ">
+						<div  class ="col-sm-8 col-lg-8">
+							<h5>${info.name}</h5>
+							<div style="display:flex; gap:15px;">
+								<span style = "color:red;">${cart.quantity}x</span>
+								<span> @$${info.price} </span>
+							</div>
+						</div
+						<span  class ="col-sm-2 col-lg-2"> $${info.price * cart.quantity}</span>
+					</div>
 					<hr noshade="true" size="1px" />
-				
+					<div class="cart-footer cart-header">
+					</div>
 				</div>
-			</div>
-		`
-	);
+			`;
+			checkout.appendChild(newCart);
+			totalAmount = totalAmount + info.price * cart.quantity;
+		});
+	}
+	totalAmountpaid.innerHTML = `
+        <div class="" style ="display: flex; justify-content: space-between;">
+			<span>Order Total</span> 
+			<span class ="total-price">$${totalAmount}</span>
+        </div>`;
 
-	const cartItems = document.querySelector(".cart");
-	cartItems.innerHtml = cartHTML.join("");
-
-}
-
-  updateCart();
-
-
-function addToCart(products, id){
-	const product = products.find((productShow) => productShow.id === id);
-	cart.unshift(product);
-	updateCart();
-};*/
+};
 
 
 
-// const content = document.querySelector(".product-body");
+$(".buy-btn").click(function(){
+	$(".checkout-body").css("display", "flex");
+	checkoutCart();
+});
 
-// fetch("data.json")
-// 	.then(res => res.json())
-// 	.then(data=>{
-// 		data.forEach(product => {
-// 			content.insertAdjacentHTML('beForeend', `
-// 			<div class="product-card">
-// 				<img src = "${product.image.desktop}" clas="pro-image" style=
-// 					"width: 100%; border-radius: 1rem;"/>
-// 		        <button class="product-btn" id=${product.id} style ="position: relative; top:-2rem; left:20%; margin-bottom:-20px;">
-// 		        	<img src ="assets/images/icon-add-to-cart.svg" /> Add to Cart</button>
-// 		        <span class="product-name" style="color:">${product.category}</span>
-// 		        <span class="product-name" style = "font-weight: bold; font-size:1rem;">${product.name}</span>
-// 		        <strong style= "color:hsl(14, 86%, 42%);">$${product.price}</strong>
-// 		    </div>`)
-// 		}) 
+$(".close-order").click(function(){
+	$(".checkout-body").css("display", "none");
+});
 
-// 	})
-
-/*const products = [
- {image: "image-waffle-desktop.jpg", name: "Waffle", description: "Waffle with Berries", price: 6.50, id: 1,quantity:1,},
- {image: "image-creme-brulee-desktop.jpg", name: "Crème Brûlée", description: "Vanilla Bean Crème Brûlée", price: 7.00, id: 2,quantity:1,},
- {image: "image-macaron-desktop.jpg", name: "Macaron", description: "Macaron Mix of Five", price: 8.00, id: 3,quantity:1,},
- {image: "image-tiramisu-desktop.jpg", name: "Tiramisu", description: "Classic Tiramisu", price: 4.00, id: 1,quantity:1,},
- {image: "image-meringue-desktop.jpg", name: "Pie", description: "Lemon Meringue Pie", price: 5.00, id: 1,quantity:1,},
- {image: "image-cake-desktop.jpg", name: "Cake", description: "Red Velvet Cake", price: 4.50, id: 1,quantity:1,},
- {image: "image-brownie-desktop.jpg", name: "Brownie", description: "Salted Caramel Brownie", price: 4.50, id: 1,quantity:1,},
- {image: "image-panna-cotta-desktop.jpg", name: "Panna Cotta", description: "Vanilla Panna Cotta", price: 6.50, id: 1,quantity:1,},
-
-];*/
-
+$(".new-order-btn").click(function(){
+	if(carts.length > 0){
+		carts =[];
+		
+		$(".btn-container").css("display", "none");
+		$(".empty-cart").css("display", "flex");
+		$(".total-container").css("display", "none");
+		$(".checkout-body").css("display", "none");
+	}	
+	
+	addCartToHTML();
+})
 
 
 
