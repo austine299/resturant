@@ -25,28 +25,56 @@
       </div>
       <div class="cart-body">
 				<div class="cart-header">
-					<h3 class="noOfItems" style = "font-size:20px; padding:5px; color: red;">Your Cart (
-            <span class ="spanQuantity">0</span>)</h3>
+					<h3 class="noOfItems" style = "font-size:20px; padding:5px; color: red; font-weight: bold;">
+            Your Cart (<span class ="spanQuantity">0</span>)</h3>
 				</div>
         <div class="cart">
         
         </div>
-        <div class="total-price">
-          <span>Total:</span>
-          <spa>$0</span>
-        </div>
         
+        <div class="total-container">
+
+        </div>
+
+        <div class="empty-cart" style="display: flex;flex-direction: column; justify-content: center;
+                align-items: center; gap: 2rem; margin-top: 2rem;">
+          <img src="assets/images/illustration-empty-cart.svg" alt="empty cart">
+          <p>Your added items will appear here</p>
+        </div>
         <div class="btn-container">
           <button class="delete btn btn-danger">Delete Cart</button>
-          <button class="buy-btn btn ">PROCEED TO BUY</button>
+          <button class="buy-btn btn ">Confirm Order</button>
         </div>
       </div>
+
+      <div class="checkout-body">
+        <span class="close-order" style="color: red; cursor: pointer; font-size: 3rem; position: absolute;
+              top: 0; right: 0;">X</span>
+        <div class="checkout-for-bkgrd-lite">
+          <img src="assets/images/icon-order-confirmed.svg" alt="" style="margin-top: 1rem;">
+          <h2 style="margin-top: 1rem;">Order Confirmed</h1>
+          <p>we hope you enjoy your food</p>
+          <div class="checkout-for-bkgrd">
+
+            <div class="checkout-container">
+          
+            
+            </div>
+            <div class="checkoutAmount">
+                
+            </div>
+            <div class="btn-container">
+              <button class="new-order-btn btn ">Start New Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
 
  
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="module" src="index.js"></script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
 </html>
