@@ -80,13 +80,18 @@ button:hover {
     border: 2px solid hsl(14, 86%, 42%);;
 }
 
-.plus-and-minu-container{
-    display: none;
-}
 
-.plus-and-minus{
+
+/* .image-active{
+    border: red 2px solid;
+} */
+
+.active-img{
+    border: 2px solid red;
+}
+.active-btn{
     
-    display: flex;
+    display:none;;
     justify-content: space-between;
     gap: 26px;
     position: relative;
@@ -105,7 +110,7 @@ button:hover {
     margin-bottom:-20px;
 }
 
-.plus-and-minus:hover{
+.active-btn:hover{
     background-color:  hsl(14, 86%, 42%);
     color: #fff;
 }
@@ -151,6 +156,8 @@ button:hover {
     padding: 1rem;
     background-color: #fff;
 }
+
+
 
 .cart-header {
 	background-color: #fff;
